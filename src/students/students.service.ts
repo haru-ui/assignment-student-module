@@ -15,4 +15,12 @@ export class StudentsService {
     const student = this.studentsRepository.create(createStudentDto);
     return this.studentsRepository.save(student);
   }
+
+  findAll(): Promise<Student[]> {
+    return this.studentsRepository.find();
+  }
+
+  findOne(id: number): Promise<Student> {
+    return this.studentsRepository.findOneBy({ id });
+  }
 }
